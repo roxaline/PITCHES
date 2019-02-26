@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/home/wecode/Desktop/Pitch/virtual"
+VIRTUAL_ENV="/home/roxaline/Documents/PITCHES/virtual"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
