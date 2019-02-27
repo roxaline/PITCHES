@@ -30,3 +30,11 @@ $ source virtual/bin/activate
 $ pip install flask-script
 
 $ chmod a+x start.sh
+
+## Technologies Used
+
+Python v3.6
+
+Boostrap
+
+Flask
