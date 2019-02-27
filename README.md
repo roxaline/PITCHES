@@ -22,3 +22,11 @@ This app  allows users to to create, post , comment,up-vote, down-vote and view 
 * A user will be able to comment on the different pitches and leave feedback.
 * A user will be able to submit a pitch in any category.
 * A user will be able to view the different categories.
+
+## Installations
+
+$ source virtual/bin/activate
+
+$ pip install flask-script
+
+$ chmod a+x start.sh
