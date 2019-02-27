@@ -3,6 +3,10 @@ from flask_bootstrap import Bootstrap
 from config import config_options
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
+from flask_uploads import UploadSet,configure_uploads,IMAGES
+from flask_mail import Mail
+from flask_simplemde import SimpleMDE
+
 
 login_manager = LoginManager()
 login_manager.session_protection = 'strong'
@@ -10,30 +14,110 @@ login_manager.login_view = 'auth.login'
 
 bootstrap = Bootstrap()
 db = SQLAlchemy()
-
+photos = UploadSet('photos',IMAGES)
+mail = Mail()
+simple = SimpleMDE()
 def create_app(config_name):
-
     app = Flask(__name__)
 
-
     # Creating the app configurations
-
     app.config.from_object(config_options[config_name])
-    # config_options[config_name].init_app(app)
-    # Initializing flask extensions
-    bootstrap.init_app(app)
-    db.init_app(app)
-    login_manager.init_app(app)
-
 
     # Registering the blueprint
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
+
     from .auth import auth as auth_blueprint
     app.register_blueprint(auth_blueprint,url_prefix = '/authenticate')
-
     # setting config
-    # from .requests import configure_request
+    # from .request import configure_request
     # configure_request(app)
+    # Initializing flask extensions
+    bootstrap.init_app(app)
+    db.init_app(app)
+    login_manager.init_app(app)from flask import Flask
+2
+from flask_bootstrap import Bootstrap
+3
+from config import config_options
+4
+from flask_sqlalchemy import SQLAlchemy
+5
+from flask_login import LoginManager
+6
+​
+7
+login_manager = LoginManager()
+8
+login_manager.session_protection = 'strong'
+9
+login_manager.login_view = 'auth.login'
+10
+​
+11
+bootstrap = Bootstrap()
+12
+db = SQLAlchemy()
+13
+​
+14
+def create_app(config_name):
+15
+​
+16
+    app = Flask(__name__)
+17
+​
+18
+​
+19
+    # Creating the app configurations
+20
+​
+21
+    app.config.from_object(config_options[config_name])
+22
+    # config_options[config_name].init_app(app)
+23
+    # Initializing flask extensions
+24
+    bootstrap.init_app(app)
+25
+    db.init_app(app)
+26
+    login_manager.init_app(app)
+27
+​
+28
+​
+29
+    # Registering the blueprint
+30
+    from .main import main as main_blueprint
+31
+    app.register_blueprint(main_blueprint)
+32
+    from .auth import auth as auth_blueprint
+33
+    app.register_blueprint(auth_blueprint,url_prefix = '/authenticate')
+34
+​
+35
+    # setting config
+36
+    # from .requests import configure_request
+37
+    # configure_request(app)
+38
     
+39
     return app
+    mail.init_app(app)
+    simple.init_app(app)
+    # configure UploadSet
+    configure_uploads(app,photos)
+
+    return app
+
+from .main import views
+from .main import error
