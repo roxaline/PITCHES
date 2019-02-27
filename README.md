@@ -38,3 +38,13 @@ Python v3.6
 Boostrap
 
 Flask
+
+## Code
+
+To run a project in browser you just use this code in your terminal
+
+**./start.sh**
+
+ it gives you  HTTP protocol with URL which is used to transfer data over the web.
+ You will copy and paste that URL in your browser.
+
