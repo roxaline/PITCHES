@@ -50,7 +50,7 @@ To run a project in browser you just use this code in your terminal
  
 ## Contacts
  
-Email:mariadelarosita078@gmail.com
+E-mail: *mariadelarosita078@gmail.com*
 
 Phone Number: (+250)786421009
 
