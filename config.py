@@ -19,14 +19,23 @@ class ProdConfig(Config):
     pass
 
 
+class TestConfig(Config):
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://roxaline:roselyne12@localhost/pitch_test'
+
 class DevConfig(Config):
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://roxaline:roselyne12@localhost/pitch'
     DEBUG = True
 
 config_options = {
 'development':DevConfig,
-'production':ProdConfig
+'production':ProdConfig,
+'test':TestConfig
 }
 
 class Config:
+    # simple mde  configurations
+    SIMPLEMDE_JS_IIFE = True
+    SIMPLEMDE_USE_CDN = True
 # ....
-    UPLOADED_PHOTOS_DEST ='app/static/photos'
+    # UPLOADED_PHOTOS_DEST ='app/static/photos'
+

@@ -1,23 +1,20 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField,TextAreaField,SubmitField, SelectField, RadioField
+from wtforms import StringField,TextAreaField,SelectField,SubmitField
 from wtforms.validators import Required
 
-class CommentsForm(FlaskForm):
-    comment = TextAreaField('Comment', validators=[Required()])
-    vote=RadioField('default field arguments', choices=[('1', 'UpVote'), ('1', 'DownVote')])
-    submit = SubmitField('SUBMIT')  
+class PitchForm(FlaskForm):
+
+    title = StringField('Pitch title',validators=[Required()])
+    text = TextAreaField('text',validators=[Required()])
+    category = SelectField('Type',choices=[('students','Students pitch'),('courses','Courses pitch')],validators=[Required()])
+    submit = SubmitField('Submit')
+
 
 class UpdateProfile(FlaskForm):
     bio = TextAreaField('Tell us about you.',validators = [Required()])
-    submit = SubmitField('Submit') 
+    submit = SubmitField('Submit')
 
-class PitchForm(FlaskForm):
-    category_id = SelectField('Select Category', choices=[('1', 'Interview'), ('2', 'Pick Up Lines'), ('3', 'Promotion'),('4','Product')])
-    content = TextAreaField('YOUR PITCH')
-    submit = SubmitField('Create Pitch')
-
-class UpvoteForm(FlaskForm):
-    '''
-    Class to create a wtf form for upvoting a pitch
-    '''
-    submit = SubmitField('Upvote')
+class CommentForm(FlaskForm):
+    title = StringField('Comment title',validators=[Required()])
+    comment = TextAreaField('Pitch Comment')
+    submit = SubmitField('Submit')
