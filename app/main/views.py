@@ -10,10 +10,10 @@ import datetime
 
 @main.route('/')
 def index():
-    pickup = Pitch.get_pitches('pickup')
-    interview = Pitch.get_pitches('interview')
-    product = Pitch.get_pitches('product')
-    promotion = Pitch.get_pitches('promotion')
+    pickup = Pitch.query.filter_by(category='pickup').all()
+    interview = Pitch.query.filter_by(category='interview').all()
+    product = Pitch.query.filter_by(category='product').all()
+    promotion = Pitch.query.filter_by(category='promotion').all()
 
     return render_template('index.html', title = 'Pitch App - Home', pickup = pickup, interview = interview, promotion = promotion, product = product)
 
