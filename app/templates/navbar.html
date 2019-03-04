@@ -16,16 +16,16 @@
                 </button>
               
             </div>
-            <div class="navbar-collapse collapse">
+            <div class="navbar-collapse collapse" style="background-color:rgb(92, 13, 13)">
                 <ul class="nav navbar-nav">
-                    <li><a href="/">Home</a></li>
+                    <li><a href="/" style="color:white">Home</a></li>
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
                   {% if current_user.is_authenticated %}
-                  <li><a href="{{url_for('auth.logout')}}">Sign out</a></li>
+                  <li><a href="{{url_for('auth.logout')}}" style="color:white" >Sign out</a></li>
                   {% else %}
-                  <li><a href="{{url_for('auth.login')}}">Sign in</a></li>
+                  <li><a href="{{url_for('auth.login')}}" style="color:white">Sign in</a></li>
                   {%endif%}
                 </ul>
             </div>

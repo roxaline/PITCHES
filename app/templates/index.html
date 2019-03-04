@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -5,50 +6,38 @@
         {% if title %}
         <title> {{ title }}</title>
         {% else %}
-        <title> Welcome to the Pitch </title>
+        <title> Welcome </title>
         {% endif %}
         {% extends 'base.html'%}
         {% import 'macros.html' as macro%}
-
+        
 <!-- Styles block -->
 
         {% block styles%}
         {{ super() }}
-        <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+        <link rel="stylesheet" href="{{url_for('static',filename='index.css')}}">
         {% endblock %}
         
     </head>
   
     <body>
-   
-
-    <!-- Content block -->
-   
-    {% block content %}
-
-<div class="container">
-    <!-- <form>
-        <input type="text" name="movie_query" placeholder="Search for a Movie" class="form-control">
-        <input type="submit"  value="Submit" class="btn btn-default">
-    </form> -->
-
-</div>
-
-    <!-- Popular movie -->
-    
-    <!-- Upcoming movie  -->
-    <!-- <h3> Pitches</h3> -->
-    <ul>
-        {{ macro.displayMovieList(upcoming)}}
-    </ul>
-    <!-- Now showing movie -->
-    <!-- <h3>Now Showing</h3> -->
-    <ul>
-        {{ macro.displayMovieList(now_showing)}}
-    </ul>
-
-
-{% endblock%}
-       
-</body>
+        {%block content%}
+        <div class="container" style= "font-family:monospace;background-color:whitesmoke">
+            <div class="jumbotron" style="background-color:rgb(14, 13, 13)">
+                <h2 style="text-align:center;color: white">Welcome</h2>
+                <h3 style="text-align:center;color: white">to</h3>
+                <h1 style="text-align:center;color: white">Pitch</h1>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="well well-lg" style="background-color:rgb(92, 13, 13)">
+                            <h3 style="color: bisque; font-family: monospace; font-size: 30px;text-align:center">Pitches</h3>
+                            <p style="font-family:monospace; font-size: 20px;color: black;text-align:center">One minute is quiet enough to use,pitch out!!</p>
+                            <a href="{{url_for('main.new_pitch')}}" class="btn btn-primary" style="color:white;margin-left: 45%;background-color: rgb(6, 7, 43)">New pitch</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {%endblock%}
+    </body>
 </html>
